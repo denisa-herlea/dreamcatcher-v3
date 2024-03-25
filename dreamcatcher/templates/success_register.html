@@ -1,0 +1,18 @@
+{% extends "./base.html" %}
+
+{% load static %}
+{% block title %}Sign in{% endblock %}
+
+{% block content %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+       <h1 class="h1 fw-bold"><span style="color: red;">D</span><span style="color: white;">REAM</span><span style="color: red;">C</span><span style="color: white;">ATCHER</span></h1>
+        <p class="lead text-muted" style="color: white; font-size: 30px;">Contul a fost creat cu succes! </p>
+
+          <a href="{% url 'dreamcatcher:login_page' %}" class="btn btn-primary my-2" style="background-color: red;">Return to Sign In Page</a>
+
+      </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block title %}Evaluare somn{% endblock %}
+
+{% block content %}
+
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="h1 fw-bold">
+        <span style="color: red;">D</span><span style="color: white;">REAM</span><span style="color: red;">C</span><span style="color: white;">ATCHER</span>
+      </h1>
+      <p class="lead text-muted">Evalueaza calitatea somnului tau</p>
+
+     <form method="POST" id="myForm5" action="{% url 'dreamcatcher:statistici_view' %}" >
+       {% csrf_token %}
+       {{ form.as_p }}
+
+    <h3 class="fw-bold">
+    <span style="color: red;">Durata</span></h3>
+    <div class="star-rating">
+
+    <input type="radio" name="duration" value="1"><i></i>
+    <input type="radio" name="duration" value="2"><i></i>
+    <input type="radio" name="duration" value="3"><i></i>
+    <input type="radio" name="duration" value="4"><i></i>
+    <input type="radio" name="duration" value="5"><i></i>
+    </div>
+
+   <h3 class="fw-bold"><span style="color: red;">Nivel de energie</span></h3>
+   <div class="star-rating">
+
+    <input type="radio" name="energy" value="1"><i></i>
+    <input type="radio" name="energy" value="2"><i></i>
+    <input type="radio" name="energy" value="3"><i></i>
+    <input type="radio" name="energy" value="4"><i></i>
+    <input type="radio" name="energy" value="5"><i></i>
+   </div>
+
+   <h3 class="fw-bold"><span style="color: red;">Stres</span></h3>
+   <div class="star-rating">
+
+    <input type="radio" name="stress" value="1"><i></i>
+    <input type="radio" name="stress" value="2"><i></i>
+    <input type="radio" name="stress" value="3"><i></i>
+    <input type="radio" name="stress" value="4"><i></i>
+    <input type="radio" name="stress" value="5"><i></i>
+   </div>
+   <br>
+   <button type="submit" class="btn btn-primary my-2" style="background-color: red;">Evalueaza</button>
+   </form>
+   </div>
+  </div>
+</section>
+{% endblock %}

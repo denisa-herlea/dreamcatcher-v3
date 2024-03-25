@@ -1,0 +1,38 @@
+{% extends "./base.html" %}
+
+{% load static %}
+{% block title %}Sign in{% endblock %}
+
+{% block content %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+       <h1 class="h1 fw-bold"><span style="color: red;">D</span><span style="color: white;">REAM</span><span style="color: red;">C</span><span style="color: white;">ATCHER</span></h1>
+        <p class="lead text-muted" style="color: white;">Creaza un cont pentru a incepe monitorizarea viselor! </p>
+
+          <form method="post" id="myForm2" action="{% url 'dreamcatcher:login_register' %}" >
+             {% csrf_token %}
+             {{ form.as_p }}
+
+            <label for="username"><span style="color: red; font-size: 22px;">Username</span></label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+
+            <label for="username"><span style="color: red; font-size: 22px;">Password</span></label>
+            <input type="text" class="form-control" name="password" id="password" placeholder="Password" required>
+
+            <label for="firstname"><span style="color: red; font-size: 22px;">First Name</span></label>
+            <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" required>
+
+            <label for="lastname"><span style="color: red; font-size: 22px;">Last Name</span></label>
+            <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" required>
+
+            <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="createaccount" >Create account</button>
+
+          </form>
+          <a href="{% url 'dreamcatcher:login_page' %}" class="btn btn-primary my-2" style="background-color: red;">Return to Sign In Page</a>
+
+
+      </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Charts{% endblock %}
+{% block content %}
+
+<section class="py-5 text-center container">
+
+  <div class="row py-lg-5">
+    <div class="col-lg-4 col-md-8 mx-auto">
+      <h3 class="h3 fw-bold"><span style="color: red;">Statistici dupa nivelul de stres</span></h3>
+
+      <label for="week_stres">Alege saptamana dorita:</label>
+      <form method="post" id="stres1" action="{% url 'dreamcatcher:statistici_view_stres_week' %}" >
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <select name="week_stres" id="week_stres">
+          <option value="all">All</option>
+          <option value="current">Current</option>
+          {% for week_num in weeks %}
+           <option value="{{ week_num }}">{{ week_num }}</option>
+          {% endfor %}
+        </select>
+        <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="stresb1" >View charts</button>
+      </form>
+      <br><br>
+
+
+      <label for="month_stres">Alege luna dorita:</label>
+      <form method="post" id="stres2" action="{% url 'dreamcatcher:statistici_view_stres_month' %}" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <select name="month_stres" id="month_stres">
+          <option value="all">All</option>
+          <option value="current">Current</option>
+          {% for month_num in months %}
+          <option value="{{ month_num }}">{{ month_num }}</option>
+          {% endfor %}
+        </select>
+       <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="stresb2" >View charts</button>
+      </form>
+      <br><br>
+    </div>
+
+
+
+
+
+    <div class="col-lg-4 col-md-8 mx-auto">
+      <h3 class="h3 fw-bold"><span style="color: red;">Statistici dupa nivelul de energie</span></h3>
+      <label for="week_energie">Alege saptamana dorita:</label>
+
+       <form method="post" id="energie1" action="{% url 'dreamcatcher:statistici_view_energie_week' %}" >
+         {% csrf_token %}
+        {{ form.as_p }}
+        <select name="week_energie" id="week_energie">
+          <option value="all">All</option>
+          <option value="current">Current</option>
+          {% for week_num in weeks %}
+          <option value="{{ week_num }}">{{ week_num }}</option>
+          {% endfor %}
+        </select>
+       <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="energieb1" >View charts</button>
+      </form>
+      <br><br>
+
+
+
+      <label for="month_energie">Alege luna dorita:</label>
+      <form method="post" id="energie2" action="{% url 'dreamcatcher:statistici_view_energie_month' %}" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <select name="month_energie" id="month_energie">
+          <option value="all">All</option>
+          <option value="current">Current</option>
+          {% for month_num in months %}
+          <option value="{{ month_num }}">{{ month_num }}</option>
+          {% endfor %}
+        </select>
+       <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="energieb2" >View charts</button>
+      </form>
+      <br><br>
+    </div>
+
+
+
+
+
+
+      <div class="col-lg-4 col-md-8 mx-auto">
+      <h3 class="h3 fw-bold"><span style="color: red;">Statistici dupa durata somnului</span></h3>
+      <label for="week_durata">Alege saptamana dorita:</label>
+      <form method="post" id="durata1" action="{% url 'dreamcatcher:statistici_view_durata_week' %}" >
+        {% csrf_token %}
+        {{ form.as_p }}
+          <select name="week_durata" id="week_durata">
+            <option value="all">All</option>
+            <option value="current">Current</option>
+            {% for week_num in weeks %}
+            <option value="{{ week_num }}">{{ week_num }}</option>
+            {% endfor %}
+          </select>
+        <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="duratab1" >View charts</button>
+      </form>
+      <br><br>
+
+
+
+      <label for="month_durata">Alege luna dorita:</label>
+        <form method="post" id="durata2" action="{% url 'dreamcatcher:statistici_view_durata_month' %}" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <select name="month_durata" id="month_durata">
+          <option value="all">All</option>
+          <option value="current">Current</option>
+          {% for month_num in months %}
+          <option value="{{ month_num }}">{{ month_num }}</option>
+          {% endfor %}
+        </select>
+        <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="duratab2" >View charts</button>
+      </form>
+      <br><br>
+    </div>
+
+    <a href="{% url 'dreamcatcher:descriere_categorie' %}" class="btn btn-primary my-2" style="background-color: green;">Revenire la pagina principala</a>
+
+  </div>
+ {% endblock %}
+</section>

@@ -1,0 +1,31 @@
+{% extends "./base.html" %}
+
+{% load static %}
+{% block title %}Sign in{% endblock %}
+
+{% block content %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+       <h1 class="h1 fw-bold"><span style="color: red;">D</span><span style="color: white;">REAM</span><span style="color: red;">C</span><span style="color: white;">ATCHER3</span></h1>
+        <p class="lead text-muted" style="color: white;">Introduceti username-ul si parola pentru a incepe monitorizarea viselor! </p>
+
+          <form method="post" id="myForm" action="{% url 'dreamcatcher:login_view' %}" >
+             {% csrf_token %}
+             {{ form.as_p }}
+
+            <label for="username"><span style="color: red; font-size: 22px;">Username</span></label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+
+            <label for="username"><span style="color: red; font-size: 22px;">Password</span></label>
+            <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+
+            <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="signin" >Sign in</button>
+          </form>
+
+         <a href="{% url 'dreamcatcher:login_register_view' %}" class="btn btn-primary my-2" style="background-color: red;">Create account</a>
+
+      </div>
+    </div>
+</section>
+{% endblock %}

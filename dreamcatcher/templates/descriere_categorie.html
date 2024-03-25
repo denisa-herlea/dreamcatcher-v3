@@ -1,0 +1,41 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Descriere somn{% endblock %}
+{% block content %}
+
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="h1 fw-bold">
+        <span style="color: red;">D</span><span style="color: white;">REAM</span><span style="color: red;">C</span><span style="color: white;">ATCHER</span>
+      </h1>
+      <p class="lead text-muted">Adauga o scurta descriere visului tau si alege categoria relevanta!</p>
+
+      <form method="post" id="myForm3" action="{% url 'dreamcatcher:rating' %}" >
+      {% csrf_token %}
+      {{ form.as_p }}
+        <div class="form-group">
+          <h3 class="fw-bold"><span style="color: red;">Description</span></h3>
+          <input type="text" class="form-control" id="description" name="description" required>
+
+           <h3 class="fw-bold"><span style="color: red;">Category</span></h3>
+            <select class="form-control" name="category" id="category" required>
+            <option value="">Choose a category</option>
+             <option value="lucide">Vise lucide</option>
+             <option value="cosmar">Cosmaruri</option>
+             <option value="recurente">Vise recurente</option>
+             <option value="vindecare">Visele de vindecare</option>
+             <option value="profetice">Visele profetice</option>
+             <option value="epice">Visele epice</option>
+            </select>
+
+        </div>
+        <button class="btn btn-primary my-2" style="background-color: red;" type="submit" id="next" >Next</button>
+      </form>
+      <a href="{% url 'dreamcatcher:back_to_statistici_view' %}" class="btn btn-primary my-2" style="background-color: green;">Vizualizare statistici</a>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
